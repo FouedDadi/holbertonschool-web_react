@@ -57,7 +57,7 @@ export function executeWork(
   }
   return result;
 }
-type Subjects = 'Math' | 'History';
+type Subjects = 'History' | 'Math';
 
 export function teachClass(todayClass: Subjects): string {
   if (todayClass === 'History') {
