@@ -44,7 +44,7 @@ export const createEmployee = (salary: number | string): Director | Teacher => {
 export function isDirector(
   employee: TeacherInterface | DirectorInterface
 ): employee is Director {
-  return employee instanceof Director;
+  return (employee as Director).workDirectorTasks !== undefined;
 }
 
 export function executeWork(
