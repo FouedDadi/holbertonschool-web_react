@@ -23,26 +23,24 @@ export const printTeacher: printTeacherFunction = (
   return `${firstName.charAt(0)}. ${lastName}`;
 };
 
-interface Studentcons {
-  new (firstName: string, lastName: string): Studentint;
+interface StudentClassConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
 }
-
-interface Studentint {
+interface StudentClassInterface {
   firstName: string;
   lastName: string;
 }
-
-class StudentClass implements Studentint {
+class StudentClass implements StudentClassInterface {
   firstName: string;
   lastName: string;
   constructor(firstName: string, lastName: string) {
     this.firstName = firstName;
     this.lastName = lastName;
   }
-  workOnHomework(): string {
+  workOnHomework() {
     return 'Currently working';
   }
-  displayName(): string {
+  displayName() {
     return this.firstName;
   }
 }
