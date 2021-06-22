@@ -1,3 +1,4 @@
+'use strict';
 interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
@@ -20,4 +21,31 @@ export const printTeacher: printTeacherFunction = (
   lastName: string
 ): string => {
   return `${firstName.charAt(0)}. ${lastName}`;
+};
+interface studentclsint {
+  firstName: string;
+  lastName: string;
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+interface studentcons {
+  new (firstName: string, lastName: string): studentclsint;
+}
+
+export const StudentClass: studentcons = class StudentClass
+  implements studentclsint
+{
+  firstName: string;
+  lastName: string;
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+  displayName(): string {
+    return this.lastName;
+  }
 };
