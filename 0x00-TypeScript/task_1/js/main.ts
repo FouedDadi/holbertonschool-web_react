@@ -15,7 +15,7 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-let printTeacher: printTeacherFunction = (
+export const printTeacher: printTeacherFunction = (
   firstName: string,
   lastName: string
 ): string => {
