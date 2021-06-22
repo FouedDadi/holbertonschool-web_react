@@ -51,8 +51,9 @@ export function executeWork(
   employee: TeacherInterface | DirectorInterface
 ): string {
   let result;
-  if (isDirector(employee)) result = employee.workDirectorTasks();
-  else {
+  if (isDirector(employee)) {
+    result = employee.workDirectorTasks();
+  } else {
     result = employee.workTeacherTasks();
   }
   return result;
