@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "browser": {
-    "./dist/index.js": "./dist/index.browser.js",
-    "./dist/index.esm.js": "./dist/index.browser.esm.js"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
