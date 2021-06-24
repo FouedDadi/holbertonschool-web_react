@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import _ from 'lodash';
-import '../css/main.css';
 
 var btn = document.createElement('<button>Click here to get started</button>');
 var p = document.createElement('<p id="count"></p>');
