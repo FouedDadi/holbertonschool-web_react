@@ -22,14 +22,17 @@ module.exports = {
       },
       {
         test: /\.jpg$/,
-        use: {
-          loader: 'file-loader',
-        },
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+              disable: true,
+            },
+          },
+        ],
       },
     ],
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx', '.css'],
-    modules: ['node_modules'],
   },
 };
