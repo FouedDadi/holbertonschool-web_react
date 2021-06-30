@@ -1,8 +1,6 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
-  devtool: 'inline-source-map',
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
@@ -14,6 +12,8 @@ module.exports = {
     compress: true,
     port: 3000,
   },
+  mode: 'development',
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -21,7 +21,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(jpg|png)$/i,
+        test: /\.jpg$/,
         use: [
           'file-loader',
           {
@@ -32,13 +32,6 @@ module.exports = {
             },
           },
         ],
-      },
-      {
-        test: /\.jsx?$/i,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
       },
     ],
   },
