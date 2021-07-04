@@ -3,6 +3,7 @@ import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import { Fragment } from 'react';
+import React from 'react';
 
 function App() {
   return (
