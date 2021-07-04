@@ -1,4 +1,3 @@
-import logo from './logo.jpg';
 import './Header.css';
 import React from 'react';
 
@@ -14,11 +13,10 @@ function Header() {
           height: '30%',
         }}
       >
-        <img src={logo} className='App-logo' alt='logo' />
         <h1>School dashboard</h1>
       </header>
     </div>
   );
 }
 
-export default App;
+export default Header;
