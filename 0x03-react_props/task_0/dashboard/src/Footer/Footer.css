@@ -1,0 +1,10 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: red solid 5px;
+  font-size: 27px;
+}
+footer p {
+  margin-left: 40%;
+}
