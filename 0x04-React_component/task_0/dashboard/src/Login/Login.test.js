@@ -11,11 +11,11 @@ test('checkin crashing issue for Login', function () {
   shallow(<Login />);
 });
 test('checkin Login', function () {
-  expect(wrapper.find('body').exists()).toEqual(true);
+  expect(wrapper.find('div').exists()).toEqual(true);
 });
 test('checkin Login input rendering', function () {
-  expect(wrapper.find('body input')).toHaveLength(2);
+  expect(wrapper.find('div input')).toHaveLength(2);
 });
 test('checkin Login label rendering', function () {
-  expect(wrapper.find('body label')).toHaveLength(2);
+  expect(wrapper.find('div label')).toHaveLength(2);
 });

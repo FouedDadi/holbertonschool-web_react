@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <title>Getting Started</title>
+    <script>
+      if (!crossOriginIsolated) SharedArrayBuffer = ArrayBuffer;
+    </script>
   <script defer src="bundle.js"></script></head>
   <body>
     <div id="root"></div>
