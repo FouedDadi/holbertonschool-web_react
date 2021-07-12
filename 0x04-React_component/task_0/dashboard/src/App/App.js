@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../App/App.css';
 import Notifications from '../Notifications/Notifications';
 import Login from '../Login/Login';
@@ -15,22 +15,26 @@ class App extends Component {
     { id: 2, name: 'Webpack', credit: 20 },
     { id: 3, name: 'React', credit: 40 },
   ];
-  htmlObj = {
-    __html: getLatestNotification(),
-  };
   listNotifications = [
     { id: 1, type: 'default', value: 'New course available' },
     { id: 2, type: 'urgent', value: 'New resume available' },
-    { id: 3, type: 'urgent', html: htmlObj },
+    { id: 3, type: 'urgent', html: getLatestNotification },
   ];
+
   render() {
+    const { isLoggedIn } = this.props;
+    const { listNotifications } = this.listNotifications;
     return (
       <>
         <Notifications listNotifications={listNotifications} />
         <div className='App'>
           <Header />
           <hr />
-          {isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
+          {isLoggedIn ? (
+            <CourseList listCourses={this.listCourses} />
+          ) : (
+            <Login />
+          )}
           <hr />
           <Footer />
         </div>
