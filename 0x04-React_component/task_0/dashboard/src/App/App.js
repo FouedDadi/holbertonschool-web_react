@@ -16,12 +16,12 @@ const listCourses = [
 const listNotifications = [
   { id: 1, type: 'default', value: 'New course available' },
   { id: 2, type: 'urgent', value: 'New resume available' },
-  { id: 3, type: 'urgent', html: htmlObj },
+  { id: 3, type: 'urgent', html: getLatestNotification() },
 ];
 class App extends Component {
   render() {
-    const { listNotifications } = this.listNotifications;
-    const { isLoggedIn } = this.props.isLoggedIn;
+    const listNotifications = this.listNotifications;
+    const { isLoggedIn } = this.props;
     return (
       <>
         <Notifications listNotifications={listNotifications} />
