@@ -1,19 +1,19 @@
-import React from "react";
-import "./Login.css";
+import React from 'react';
+import './Login.css';
 
 const Login = () => {
   return (
     <>
-      <div className="App-login">
+      <div className='App-login'>
         <p>Login to access the full dashboard</p>
         <form>
           <label>
             Email:
-            <input type="text" name="email" />
+            <input type='text' name='email' />
           </label>
           <label>
             Password:
-            <input type="text" nam="password" />
+            <input type='text' name='password' />
           </label>
           <button>OK</button>
         </form>

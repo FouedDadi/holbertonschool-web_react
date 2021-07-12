@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../App/App.css';
 import Notifications from '../Notifications/Notifications';
 import Login from '../Login/Login';
@@ -7,7 +7,6 @@ import Header from '../Header/Header';
 import CourseList from '../CourseList/CourseList';
 import PropTypes from 'prop-types';
 import { getLatestNotification } from '../utils/utils';
-import { Component } from 'react';
 
 class App extends Component {
   listCourses = [
