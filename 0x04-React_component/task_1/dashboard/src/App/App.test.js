@@ -43,4 +43,11 @@ describe('<App />', () => {
     expect(wrapper.find(Login)).toHaveLength(0);
     expect(wrapper.find(CourseList)).toHaveLength(1);
   });
+  it('checking logout', () => {
+    const spy = jest.fn(() => void 0);
+    const al = jest.spyOn(global, 'alert');
+    expect(al);
+    expect(spy);
+    spy.mockRestore();
+  });
 });
