@@ -102,7 +102,7 @@ describe('<Notifications />', () => {
       'No new notification for now'
     );
   });
-  it('checking when markasRead is called the correct id is printed', () => {
+  it('checking when markasRead is called the console.log msg is correct', () => {
     const wrapper = shallow(<Notifications />);
     const spy = jest.spyOn(console, 'log');
     wrapper.instance().markAsRead(50);
