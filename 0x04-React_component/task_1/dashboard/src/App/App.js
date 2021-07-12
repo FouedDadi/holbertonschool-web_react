@@ -21,7 +21,7 @@ const listNotifications = [
 class App extends Component {
   componentDidMount() {
     document.addEventListener('keydown', function (event) {
-      if (event.ctrlKey && event.keyCode === 72) {
+      if (event.ctrlKey && event.key === 'h') {
         alert('Logging you out');
         this.props.logOut();
       }
@@ -30,7 +30,7 @@ class App extends Component {
 
   componentWillUnmount() {
     document.removeEventListener('keydown', function (event) {
-      if (event.ctrlKey && event.keyCode === 72) {
+      if (event.ctrlKey && event.key === 'h') {
         alert('Logging you out');
         this.props.logOut();
       }
