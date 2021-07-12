@@ -1,51 +1,62 @@
 const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+	context: path.resolve(__dirname, '../src'),
+	entry: './index.js',
+	output: {
+		path: path.resolve('./public'),
+		filename: 'bundle.js',
+		clean: true,
+	},
+	mode: 'development',
+	devServer: {
+		contentBase: path.resolve('../dist/'),
+		compress: true,
+		port: 8564,
+		hot: true,
+	},
+	devtool: 'inline-source-map',
+	performance: {
+    maxAssetSize: 100000,
   },
-  plugins: [
-    new HTMLWebpackPlugin({
-      filename: 'index.html',
-      template: './dist/index.html',
-    }),
-  ],
-  devServer: {
-    hot: true,
-    contentBase: path.resolve(__dirname, 'dist'),
-    compress: true,
-    port: 3000,
-    writeToDisk: true,
-  },
-  mode: 'development',
-  devtool: 'inline-source-map',
-  module: {
+	module: {
     rules: [
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.(png|jpe?g)$/i,
-        use: [
-          'file-loader',
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              bypassOnDebug: true,
-              disable: true,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader'],
-      },
+			{
+				test: /\.css$/, use: ['style-loader', 'css-loader']
+			},
+			{
+				test: /\.(gif|png|jpe?g|svg)$/i,
+				use: [
+					'file-loader',
+					{
+						loader: 'image-webpack-loader',
+						options: {
+							bypassOnDebug: true, // webpack@1.x
+							disable: true, // webpack@2.x and newer
+						},
+					},
+				],
+			},
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env', '@babel/react']
+					}
+				}
+			},
+			{
+				test: /\.jsx$/,
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env', '@babel/react']
+					}
+				}
+			},
     ],
-  },
-};
+	},
+}

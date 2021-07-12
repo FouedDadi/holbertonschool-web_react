@@ -1,21 +1,16 @@
-import Login from './Login';
 import React from 'react';
-import Adapter from 'enzyme-adapter-react-16';
-import { shallow, configure } from 'enzyme';
+import { shallow } from 'enzyme';
+import Login from './Login';
 
-configure({ adapter: new Adapter() });
+describe('<Login />', () => {
+  it('renders a <Login /> component', () => {
+    const wrapper = shallow(<Login />);
+    expect(wrapper).toHaveLength(1);
+	});
 
-const wrapper = shallow(<Login />);
-
-test('checkin crashing issue for Login', function () {
-  shallow(<Login />);
-});
-test('checkin Login', function () {
-  expect(wrapper.find('div').exists()).toEqual(true);
-});
-test('checkin Login input rendering', function () {
-  expect(wrapper.find('div input')).toHaveLength(2);
-});
-test('checkin Login label rendering', function () {
-  expect(wrapper.find('div label')).toHaveLength(2);
+	it('renders a <Login /> component and checks contents', () => {
+    const wrapper = shallow(<Login />);
+    expect(wrapper.find('div.App-login input')).toHaveLength(2);
+    expect(wrapper.find('div.App-login label')).toHaveLength(2);
+	});
 });

@@ -1,10 +1,8 @@
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border-top: red solid 5px;
-  font-size: 27px;
-}
-footer p {
-  margin-left: 40%;
+/* Footer CSS */
+.App-footer {
+  max-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
 }

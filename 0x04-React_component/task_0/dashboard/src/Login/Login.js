@@ -1,73 +1,25 @@
-import './Login.css';
-import React from 'react';
+import React from "react";
+import "./Login.css";
 
-function Login() {
+const Login = () => {
   return (
-    <div className='Login'>
-      <p
-        style={{
-          display: 'inline-block',
-          position: 'absolute',
-          top: '40%',
-          left: '-2%',
-        }}
-      >
-        Login to access the full dashboard
-      </p>
-      <label
-        htmlFor='email'
-        style={{
-          display: 'inline-block',
-          position: 'absolute',
-          top: '55%',
-          left: '1.3%',
-        }}
-      >
-        Email:
-      </label>
-      <input
-        type='email'
-        id='email'
-        style={{
-          display: 'inline-block',
-          position: 'absolute',
-          top: '55%',
-          left: '4%',
-        }}
-      />
-      <label
-        htmlFor='pwd'
-        style={{
-          display: 'inline-block',
-          position: 'absolute',
-          top: '55%',
-          left: '15%',
-        }}
-      >
-        Password:{' '}
-      </label>
-      <input
-        type='password'
-        id='pwd'
-        style={{
-          display: 'inline-block',
-          position: 'absolute',
-          top: '55%',
-          left: '19.5%',
-        }}
-      />
-      <button
-        style={{
-          display: 'inline-block',
-          position: 'absolute',
-          top: '55%',
-          left: '30%',
-        }}
-      >
-        OK
-      </button>
-    </div>
+    <>
+      <div className="App-login">
+        <p>Login to access the full dashboard</p>
+        <form>
+          <label>
+            Email:
+            <input type="text" name="email" />
+          </label>
+          <label>
+            Password:
+            <input type="text" nam="password" />
+          </label>
+          <button>OK</button>
+        </form>
+      </div>
+    </>
   );
-}
+};
 
 export default Login;

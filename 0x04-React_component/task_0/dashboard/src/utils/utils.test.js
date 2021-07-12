@@ -1,16 +1,17 @@
-import { getFullYear, getFooterCopy, getLatestNotification } from './utils';
+import {strict as assert} from 'assert'
+import { getFullYear, getFooterCopy, getLatestNotification } from './utils'
 
-test('test year output', function () {
-  expect(getFullYear()).toBe(2021);
-});
-test('try getfootercopy with false input', function () {
-  expect(getFooterCopy(false)).toBe('Holberton School main dashboard');
-});
-test('try getfootercopy with false input', function () {
-  expect(getFooterCopy(true)).toBe('Holberton School');
-});
-test('testing output for getlastesnotification', function () {
-  expect(getLatestNotification()).toBe(
-    '<strong>Urgent requirement</strong> - complete by EOD'
-  );
-});
+describe('Test Utils', () => {
+	it('checks return of getFullYear', () => {
+		assert.equal(getFullYear(), 2021)
+	})
+	it('checks return of getFooterCopy with isIndex === true', () => {
+		assert.equal(getFooterCopy(true), 'Holberton School')
+	})
+	it('checks return of getFooterCopy with isIndex === false', () => {
+		assert.equal(getFooterCopy(false), 'Holberton School main dashboard')
+	})
+	it('checks return of getLatestNotification', () => {
+		assert.equal(getLatestNotification(), '<strong>Urgent requirement</strong> - complete by EOD')
+	})
+})

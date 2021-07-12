@@ -1,67 +1,57 @@
-import React from 'react';
-import './Notifications.css';
-import { getLatestNotification } from '../utils/utils';
-import close_icon from '../assets/close-icon.png';
-import NotificationItem from './NotificationItem';
+import React from "react";
+import "./Notifications.css";
+import NotificationItem from "./NotificationItem";
+import icon from "../assets/close-icon.png";
+import PropTypes from "prop-types";
+import NotificationItemShape from "./NotificationItemShape";
 
-const Notifications = function () {
+const Notifications = ({ displayDrawer, listNotifications }) => {
+  function clickClose() {
+    console.log("Close button has been clicked");
+  }
   return (
-    <div
-      className='Notifications'
-      style={{
-        display: 'flex-box',
-        position: 'absolute',
-        top: '10px',
-        right: '8px',
-        width: '95%',
-        height: '7%',
-      }}
-    >
-      <p
-        style={{
-          display: 'inline-block',
-          position: 'absolute',
-          top: '-70px',
-          left: '-3%',
-        }}
-      >
-        Here is the list of notifications
-      </p>
-      <button
-        type='button'
-        aria-label='Close'
-        onClick={() => console.log('Close button has been clicked')}
-        style={{
-          display: 'inline-block',
-          position: 'absolute',
-          top: '10px',
-          right: '10px',
-          border: '0',
-        }}
-      >
-        <img
-          src={close_icon}
-          alt=''
-          style={{ width: '12px', height: '12px' }}
-        />
-      </button>
-      <ul
-        style={{
-          display: 'inline-block',
-          position: 'absolute',
-          top: '30%',
-          left: '10px',
-        }}
-      >
-        <NotificationItem type='default' value='New course available' />
-        <NotificationItem type='urgent' value='New resume available' />
-        <NotificationItem
-          type='urgent'
-          html={{ __html: `${getLatestNotification()}` }}
-        />
-      </ul>
-    </div>
+    <>
+      <div className="menuItem">Your notifications</div>
+      {displayDrawer && (
+        <div className="Notifications">
+          {listNotifications.length > 0 ? (
+            <>
+              <p style={{ display: "inline" }}>
+                Here is the list of notifications
+              </p>
+              <button
+                style={{ float: "right" }}
+                aria-label="Close"
+                onClick={clickClose}
+              >
+                <img src={icon} alt="" style={{ height: "3vh" }} />
+              </button>
+              <ul>
+              {listNotifications.map((notification) => (
+                <NotificationItem
+                  key={notification.id}
+                  type={notification.type}
+                  value={notification.value}
+                  html={notification.html}
+                />
+              ))}
+            </ul>
+            </>
+          ) : <p>No new notification for now</p>}
+        </div>
+      )}
+    </>
   );
+};
+
+Notifications.propTypes = {
+  displayDrawer: PropTypes.bool,
+  listNotifications: PropTypes.arrayOf(NotificationItemShape),
+};
+
+Notifications.defaultProps = {
+  displayDrawer: false,
+  listNotifications: [],
 };
 
 export default Notifications;
