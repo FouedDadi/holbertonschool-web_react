@@ -12,6 +12,7 @@ const listCourses = [
   { id: 2, name: 'Webpack', credit: 20 },
   { id: 3, name: 'React', credit: 40 },
 ];
+
 class App extends Component {
   render() {
     const listNotifications = this.listNotifications;
