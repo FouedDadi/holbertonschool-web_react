@@ -1,0 +1,9 @@
+import { List } from './node_modules/immutable/dist/immutable-nonambient';
+
+export function getListObject(array) {
+  return List(array);
+}
+
+export function addElementToList(list, element) {
+  list.push(element);
+}
